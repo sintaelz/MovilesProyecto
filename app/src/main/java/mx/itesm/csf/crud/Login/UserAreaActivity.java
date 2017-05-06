@@ -11,7 +11,7 @@ import java.util.TimerTask;
 
 import mx.itesm.csf.crud.CRUDmenu;
 import mx.itesm.csf.crud.R;
-import mx.itesm.csf.crud.Ventas.PrincipalVentas;
+import mx.itesm.csf.crud.vendedorMenu;
 
 public class UserAreaActivity extends AppCompatActivity {
 
@@ -47,7 +47,7 @@ public class UserAreaActivity extends AppCompatActivity {
                 if(admin == 1) {
                     mainIntent = new Intent().setClass(UserAreaActivity.this, CRUDmenu.class);
                 } else {
-                    mainIntent = new Intent().setClass(UserAreaActivity.this, PrincipalVentas.class);
+                    mainIntent = new Intent().setClass(UserAreaActivity.this, vendedorMenu.class);
                 }
                 startActivity(mainIntent);
             }
