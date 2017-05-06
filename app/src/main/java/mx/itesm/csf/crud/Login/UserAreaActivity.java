@@ -34,7 +34,7 @@ public class UserAreaActivity extends AppCompatActivity {
         final int admin = intent.getIntExtra("admin", -1);
         String correo = intent.getStringExtra("correo");
 
-        String message = nombre + " " + apellido + " bienvenido a tu cuenta, tu email es " + correo + ", tu id es: " + e_id + "" + " y tu num de admin es: " + admin + "";
+        String message = nombre + " " + apellido + " bienvenido a tu cuenta\nTu email es " + correo + "\nTu id es: " + e_id + "\nTu num de admin es: " + admin + "";
         welcomeMessage.setText(message);
         //etMail.setText(email);
 

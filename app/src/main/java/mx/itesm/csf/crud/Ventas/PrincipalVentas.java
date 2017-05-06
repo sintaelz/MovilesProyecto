@@ -27,10 +27,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import mx.itesm.csf.crud.Adaptadores.AdaptadorVentas;
+import mx.itesm.csf.crud.Adaptadores.AdaptadorAutos;
 import mx.itesm.csf.crud.Controladores.Controlador;
 import mx.itesm.csf.crud.Controladores.Servicios;
-import mx.itesm.csf.crud.Modelos.ModeloVentas;
+import mx.itesm.csf.crud.Modelos.ModeloRopa;
 import mx.itesm.csf.crud.R;
 
 
@@ -41,7 +41,7 @@ public class PrincipalVentas extends AppCompatActivity {
     RecyclerView.Adapter miAdaptador;
     RecyclerView.LayoutManager miAdministrador;
     //List<DataModel> misElementos;
-    List<ModeloVentas> misElementos;
+    List<ModeloRopa> misElementos;
     Button botonInsertar, botonBorrar;
     ProgressDialog barra_de_progreso;
 
@@ -63,7 +63,7 @@ public class PrincipalVentas extends AppCompatActivity {
         // utilizamos los componentes de CardView
         miAdministrador = new LinearLayoutManager(PrincipalVentas.this,LinearLayoutManager.VERTICAL,false);
         miRecyclerview.setLayoutManager(miAdministrador);
-        miAdaptador = new AdaptadorVentas(PrincipalVentas.this,misElementos);
+        miAdaptador = new AdaptadorAutos(PrincipalVentas.this,misElementos);
         miRecyclerview.setAdapter(miAdaptador);
 
 
@@ -72,7 +72,7 @@ public class PrincipalVentas extends AppCompatActivity {
         // https://developer.android.com/reference/android/support/v7/widget/LinearLayoutManager.html
         miAdministrador = new LinearLayoutManager(PrincipalVentas.this,LinearLayoutManager.VERTICAL,false);
         miRecyclerview.setLayoutManager(miAdministrador);
-        miAdaptador = new AdaptadorVentas(PrincipalVentas.this,misElementos);
+        miAdaptador = new AdaptadorAutos(PrincipalVentas.this,misElementos);
         miRecyclerview.setAdapter(miAdaptador);
 
         // definimos los listeners para cada boton de nuestra interfaz
@@ -100,7 +100,7 @@ public class PrincipalVentas extends AppCompatActivity {
         barra_de_progreso.setCancelable(false);
         barra_de_progreso.show();
 
-        JsonArrayRequest reqData = new JsonArrayRequest(Request.Method.GET, Servicios.VENTAS_READ,null,
+        JsonArrayRequest reqData = new JsonArrayRequest(Request.Method.GET, Servicios.ROPA_READ,null,
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
@@ -117,19 +117,19 @@ public class PrincipalVentas extends AppCompatActivity {
 
                                 } else {
                                     JSONObject data = response.getJSONObject(i);
-                                    ModeloVentas ventas = new ModeloVentas();
-                                    ventas.setV_id(data.getString("v_id"));
-                                    ventas.setP_id(data.getString("p_id"));
-                                    ventas.setC_id(data.getString("c_id"));
-                                    ventas.setCantidad(data.getString("cantidad"));
-                                    misElementos.add(ventas);
+                                    ModeloRopa ropa = new ModeloRopa();
+                                    ropa.setP_id(data.getString("p_id"));
+                                    ropa.setNombre(data.getString("nombre"));
+                                    ropa.setImagen(data.getString("imagen"));
+                                    ropa.setStock(data.getString("stock"));
+                                    ropa.setPrecio(data.getString("precio"));
+                                    misElementos.add(ropa);
                                 }
 
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
                         }
-                        miAdaptador.notifyDataSetChanged();
                     }
                 },
                 new Response.ErrorListener() {

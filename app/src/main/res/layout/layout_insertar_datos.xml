@@ -9,7 +9,6 @@
     android:padding="10dp"
     tools:context="mx.itesm.csf.crud.Ropa.InsertarDatos">
 
-
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

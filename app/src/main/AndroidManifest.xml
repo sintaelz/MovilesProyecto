@@ -27,7 +27,7 @@
         <activity android:name=".CRUDmenu" />
         <activity android:name=".Login.RegisterActivity" />
         <activity android:name=".Login.UserAreaActivity" />
-        <activity android:name=".Login.MainActivity"/>
+        <activity android:name=".Login.MainActivity" />
         <activity android:name=".Login.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -35,6 +35,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Ropa.LeerDatos"></activity>
     </application>
 
 </manifest>

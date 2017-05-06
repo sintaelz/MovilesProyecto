@@ -151,7 +151,7 @@ public class InsertarDatos extends AppCompatActivity {
             @Override
             public Map < String, String > getHeaders() throws AuthFailureError {
                 HashMap < String, String > headers = new HashMap < String, String > ();
-                String encodedCredentials = Base64.encodeToString("admin@tiendita.com:root".getBytes(), Base64.NO_WRAP);
+                String encodedCredentials = Base64.encodeToString("pddm-1021720:1021720".getBytes(), Base64.NO_WRAP);
                 headers.put("Authorization", "Basic " + encodedCredentials);
                 return headers;
             }

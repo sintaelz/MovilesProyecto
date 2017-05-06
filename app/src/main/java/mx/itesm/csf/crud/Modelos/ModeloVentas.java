@@ -7,15 +7,17 @@ package mx.itesm.csf.crud.Modelos;
 public class ModeloVentas {
 
     // definimos los componentes de cada objeto de ropa
-    private String v_id, p_id, c_id, cantidad;
+    private String v_id, e_id, p_id, c_id, cantidad, fecha;
 
     public ModeloVentas(){}
 
-    public ModeloVentas(String v_id, String p_id, String c_id, String cantidad) {
+    public ModeloVentas(String v_id, String e_id, String p_id, String c_id, String cantidad, String fecha) {
         this.v_id = v_id;
+        this.e_id = e_id;
         this.p_id = p_id;
         this.c_id = c_id;
         this.cantidad = cantidad;
+        this.fecha = fecha;
 
     }
 
@@ -25,6 +27,12 @@ public class ModeloVentas {
 
     public void setV_id(String v_id) {
         this.v_id = v_id;
+    }
+
+    public String getE_id() {return e_id; }
+
+    public void setE_id(String e_id) {
+        this.e_id = e_id;
     }
 
     public String getP_id() {
@@ -50,4 +58,8 @@ public class ModeloVentas {
     public void setCantidad(String cantidad) {
         this.cantidad = cantidad;
     }
+
+    public String getFecha() { return fecha; }
+
+    public void setFecha(String fecha) { this.fecha = fecha; }
 }
