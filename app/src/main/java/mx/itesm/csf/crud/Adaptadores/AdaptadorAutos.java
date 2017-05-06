@@ -46,7 +46,7 @@ public class AdaptadorAutos extends RecyclerView.Adapter<AdaptadorAutos.Contened
     @Override
     public void onBindViewHolder(ContenedorDeDatos titulo, int position) {
         ModeloRopa datamodel  = misElementos.get(position);
-        titulo.Nombre.setText(datamodel.getNombre() + " | $" + datamodel.getPrecio() + " | (" + datamodel.getStock() + ")");
+        titulo.Nombre.setText(datamodel.getNombre() + " | $" + datamodel.getPrecio() + " | (" + datamodel.getStock() + ")" + " | (" + datamodel.getStock_T2() + ")" + " | (" + datamodel.getStock_T3() + ")");
         titulo.Clave_auto.setText(datamodel.getP_id());
 
         titulo.datamodel = datamodel;
@@ -90,6 +90,8 @@ public class AdaptadorAutos extends RecyclerView.Adapter<AdaptadorAutos.Contened
                     update.putExtra("precio",datamodel.getPrecio());
                     update.putExtra("imagen",datamodel.getImagen());
                     update.putExtra("stock",datamodel.getStock());
+                    update.putExtra("stock_T2",datamodel.getStock_T2());
+                    update.putExtra("stock_T3",datamodel.getStock_T3());
 
                     context.startActivity(update);
                 }

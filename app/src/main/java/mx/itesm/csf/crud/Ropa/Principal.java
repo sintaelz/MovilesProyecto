@@ -123,6 +123,8 @@ public class Principal extends AppCompatActivity {
                                     ropa.setNombre(data.getString("nombre"));
                                     ropa.setImagen(data.getString("imagen"));
                                     ropa.setStock(data.getString("stock"));
+                                    ropa.setStock_T2(data.getString("stock_T2"));
+                                    ropa.setStock_T3(data.getString("stock_T3"));
                                     ropa.setPrecio(data.getString("precio"));
                                     misElementos.add(ropa);
                                 }

@@ -35,7 +35,7 @@ import static mx.itesm.csf.crud.Controladores.Servicios.ROPA_UPDATE;
 public class InsertarDatos extends AppCompatActivity {
 
     // definimos los componentes de nuestra interfaz
-    EditText clave,nombre,precio,imagen,stock;
+    EditText clave,nombre,precio,imagen,stock, stock_T2, stock_T3;
     Button boton_cancelar,boton_guardar;
     ProgressDialog barra_de_progreso;
     Map<String,String> map = new HashMap<>();
@@ -54,6 +54,8 @@ public class InsertarDatos extends AppCompatActivity {
         String intent_precio = datos.getStringExtra("precio");
         String intent_imagen = datos.getStringExtra("imagen");
         String intent_stock = datos.getStringExtra("stock");
+        String intent_stock_T2 = datos.getStringExtra("stock_T2");
+        String intent_stock_T3 = datos.getStringExtra("stock_T3");
 
 
         // hacemos referencia a nuestra interfaz gráfica XML
@@ -62,6 +64,8 @@ public class InsertarDatos extends AppCompatActivity {
         precio = (EditText) findViewById(R.id.precio_del_vehículo);
         imagen= (EditText) findViewById(R.id.url_imagen);
         stock= (EditText) findViewById(R.id.stock);
+        stock_T2= (EditText) findViewById(R.id.stock_T2);
+        stock_T3= (EditText) findViewById(R.id.stock_T3);
 
         boton_cancelar = (Button) findViewById(R.id.boton_cancelar);
         boton_guardar = (Button) findViewById(R.id.boton_guardar);
@@ -79,6 +83,8 @@ public class InsertarDatos extends AppCompatActivity {
             precio.setText(intent_precio);
             imagen.setText(intent_imagen);
             stock.setText(intent_stock);
+            stock_T2.setText(intent_stock_T2);
+            stock_T3.setText(intent_stock_T3);
             Uri imageUri = Uri.parse(imagen.getText().toString());
             draweeView.setImageURI(imageUri);
 
@@ -144,6 +150,8 @@ public class InsertarDatos extends AppCompatActivity {
                 map.put("precio",precio.getText().toString());
                 map.put("imagen",imagen.getText().toString());
                 map.put("stock",stock.getText().toString());
+                map.put("stock_T2", stock_T2.getText().toString());
+                map.put("stock_T3",stock_T3.getText().toString());
                 Log.d("Parámetros: ", ROPA_UPDATE + map.toString());
 
                 return map;
@@ -198,6 +206,8 @@ public class InsertarDatos extends AppCompatActivity {
                 map.put("nombre",nombre.getText().toString());
                 map.put("imagen",imagen.getText().toString());
                 map.put("stock",stock.getText().toString());
+                map.put("stock_T2", stock_T2.getText().toString());
+                map.put("stock_T3", stock_T3.getText().toString());
                 map.put("precio",precio.getText().toString());
 
                 return map;

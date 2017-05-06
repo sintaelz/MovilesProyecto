@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageButton;
 
+import mx.itesm.csf.crud.Clientes.PrincipalClientes;
 import mx.itesm.csf.crud.Ventas.PrincipalVentas;
 
 public class vendedorMenu extends AppCompatActivity {
@@ -50,8 +51,8 @@ public class vendedorMenu extends AppCompatActivity {
         clientes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Intent intent = new Intent(vendedorMenu.this,PrincipalVentas.class);
-                //startActivity(intent);
+                Intent intent = new Intent(vendedorMenu.this,PrincipalClientes.class);
+                startActivity(intent);
             }
         });
     }
