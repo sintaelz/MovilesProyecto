@@ -71,9 +71,14 @@ public class MainActivity extends AppCompatActivity {
                                     intent.putExtra("correo",correo);
                                     startActivity(intent);
                                 } else {
-                                    String message = nombre + " " + apellido + " bienvenido a tu cuenta, tu email es " + correo + ", tu id es: " + e_id + "" + " y tu num de admin es: " + admin + "";
                                     //etMail.setText(email);
                                     Intent otherIntent = new Intent(MainActivity.this, UserAreaActivity.class);
+                                    otherIntent.putExtra("e_id",e_id);
+                                    otherIntent.putExtra("nombre",nombre);
+                                    otherIntent.putExtra("apellido",apellido);
+                                    otherIntent.putExtra("admin",admin);
+                                    otherIntent.putExtra("correo",correo);
+                                    String message = nombre + " " + apellido + " bienvenido a tu cuenta, tu email es " + correo + ", tu id es: " + e_id + "" + " y tu num de admin es: " + admin + "";
                                     startActivity(otherIntent);
                                 }
 

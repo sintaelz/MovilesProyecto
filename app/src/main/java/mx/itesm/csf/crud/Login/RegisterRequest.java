@@ -1,5 +1,8 @@
 package mx.itesm.csf.crud.Login;
 
+import android.util.Base64;
+
+import com.android.volley.AuthFailureError;
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
 
@@ -11,7 +14,7 @@ import java.util.Map;
  */
 
 public class RegisterRequest extends StringRequest {
-    private static final String REGISTER_REQUEST_URL="http://ubiquitous.csf.itesm.mx/~pddm-1020365/parcial2/entregaParcial2/servicio.register.php";
+    private static final String REGISTER_REQUEST_URL="http://ubiquitous.csf.itesm.mx/~pddm-1021720/content/proyectoFinalProtected/servicio.register.php";
     private Map<String, String> params;
 
     public RegisterRequest(String nombre, String apellido, String correo, String password, Response.Listener<String> listener){
@@ -26,5 +29,12 @@ public class RegisterRequest extends StringRequest {
     @Override
     public Map<String, String> getParams(){
         return params;
+    }
+    @Override
+    public Map < String, String > getHeaders() throws AuthFailureError {
+        HashMap < String, String > headers = new HashMap < String, String > ();
+        String encodedCredentials = Base64.encodeToString("pddm-1021720:1021720".getBytes(), Base64.NO_WRAP);
+        headers.put("Authorization", "Basic " + encodedCredentials);
+        return headers;
     }
 }

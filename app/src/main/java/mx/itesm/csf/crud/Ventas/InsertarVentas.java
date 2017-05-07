@@ -32,7 +32,7 @@ import static mx.itesm.csf.crud.Controladores.Servicios.VENTAS_UPDATE;
 public class InsertarVentas extends AppCompatActivity {
 
     // definimos los componentes de nuestra interfaz
-    EditText clave_venta, clave_producto, clave_cliente, cantidad;
+    EditText clave_venta, clave_empleado, clave_producto, clave_cliente, cantidad, fecha;
     Button boton_cancelar,boton_guardar;
     ProgressDialog barra_de_progreso;
     Map<String, String> map = new HashMap<>();
@@ -46,16 +46,20 @@ public class InsertarVentas extends AppCompatActivity {
         Intent datos = getIntent();
         final int update = datos.getIntExtra("update",0);
         String intent_clave_venta = datos.getStringExtra("clave_venta");
+        String intent_clave_empleado = datos.getStringExtra(("clave_empleado"));
         String intent_clave_producto = datos.getStringExtra("clave_producto");
         String intent_clave_cliente = datos.getStringExtra("clave_cliente");
         String intent_cantidad = datos.getStringExtra("cantidad");
+        String intent_fecha = datos.getStringExtra("fecha");
 
 
         // hacemos referencia a nuestra interfaz gráfica XML
         clave_venta = (EditText) findViewById(R.id.clave_venta);
+        clave_empleado = (EditText) findViewById(R.id.clave_empleado);
         clave_producto = (EditText) findViewById(R.id.clave_producto);
         clave_cliente = (EditText) findViewById(R.id.clave_cliente);
         cantidad = (EditText) findViewById(R.id.cantidad);
+        fecha = (EditText) findViewById(R.id.fecha);
 
         boton_cancelar = (Button) findViewById(R.id.boton_cancelar);
         boton_guardar = (Button) findViewById(R.id.boton_guardar);
@@ -67,10 +71,12 @@ public class InsertarVentas extends AppCompatActivity {
         {
             boton_guardar.setText("Actualizar datos");
             clave_venta.setText(intent_clave_venta);
+            clave_empleado.setText(intent_clave_empleado);
             clave_producto.setText(intent_clave_producto);
             clave_cliente.setText(intent_clave_cliente);
             clave_venta.setVisibility(View.GONE);
             cantidad.setText(intent_cantidad);
+            fecha.setText(intent_fecha);
         }
 
         boton_guardar.setOnClickListener(new View.OnClickListener() {
@@ -130,9 +136,11 @@ public class InsertarVentas extends AppCompatActivity {
             protected Map<String, String> getParams() throws AuthFailureError {
                 map.clear();
                 map.put("v_id",clave_venta.getText().toString());
+                map.put("e_id",clave_empleado.getText().toString());
                 map.put("p_id",clave_producto.getText().toString());
                 map.put("c_id",clave_cliente.getText().toString());
                 map.put("cantidad",cantidad.getText().toString());
+                map.put("fecha",fecha.getText().toString());
                 Log.d("Parámetros: ", VENTAS_UPDATE + map.toString());
 
                 return map;
@@ -183,9 +191,11 @@ public class InsertarVentas extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 map.clear();
+                map.put("e_id",clave_empleado.getText().toString());
                 map.put("p_id",clave_producto.getText().toString());
                 map.put("c_id",clave_cliente.getText().toString());
                 map.put("cantidad",cantidad.getText().toString());
+                map.put("fecha",fecha.getText().toString());
                 return map;
             }
             @Override
