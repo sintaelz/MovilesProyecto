@@ -2,6 +2,7 @@ package mx.itesm.csf.crud.Clientes;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Base64;
@@ -16,6 +17,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.facebook.drawee.view.SimpleDraweeView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -32,7 +34,7 @@ import static mx.itesm.csf.crud.Controladores.Servicios.CLIENTES_UPDATE;
 public class InsertarClientes extends AppCompatActivity {
 
     // definimos los componentes de nuestra interfaz
-    EditText clave,nombre,apellido,admin, correo, password;
+    EditText clave,nombre,apellido, foto;
     Button boton_cancelar,boton_guardar;
     ProgressDialog barra_de_progreso;
     Map<String, String> map = new HashMap<>();
@@ -45,29 +47,36 @@ public class InsertarClientes extends AppCompatActivity {
         /* obtenemos los datos del intento*/
         Intent datos = getIntent();
         final int update = datos.getIntExtra("update",0);
-        String intent_clave = datos.getStringExtra("clave");
+        //String intent_clave = datos.getStringExtra("clave");
         String intent_nombre = datos.getStringExtra("nombre");
         String intent_apellido = datos.getStringExtra("apellido");
+        String intent_foto = datos.getStringExtra("foto");
 
 
         // hacemos referencia a nuestra interfaz gráfica XML
-        clave = (EditText) findViewById(R.id.clave_cliente);
+        //clave = (EditText) findViewById(R.id.clave_cliente);
         nombre = (EditText) findViewById(R.id.nombre_cliente);
         apellido = (EditText) findViewById(R.id.apellido_cliente);
+        foto = (EditText) findViewById(R.id.foto_cliente);
 
         boton_cancelar = (Button) findViewById(R.id.boton_cancelar);
         boton_guardar = (Button) findViewById(R.id.boton_guardar);
         barra_de_progreso = new ProgressDialog(InsertarClientes.this);
+
+        SimpleDraweeView draweeView = (SimpleDraweeView) findViewById(R.id.sdvImage);
 
 
         // condición para inserción
         if(update == 1)
         {
             boton_guardar.setText("Actualizar datos");
-            clave.setText(intent_clave);
-            clave.setVisibility(View.GONE);
+            //clave.setText(intent_clave);
+            //clave.setVisibility(View.GONE);
             nombre.setText(intent_nombre);
             apellido.setText(intent_apellido);
+            foto.setText(intent_foto);
+            Uri imageUri = Uri.parse(foto.getText().toString());
+            draweeView.setImageURI(imageUri);
 
         }
 
@@ -127,9 +136,10 @@ public class InsertarClientes extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 map.clear();
-                map.put("c_id",clave.getText().toString());
+                //map.put("c_id",clave.getText().toString());
                 map.put("nombre",nombre.getText().toString());
                 map.put("apellido",apellido.getText().toString());
+                map.put("foto",foto.getText().toString());
                 Log.d("Parámetros: ", CLIENTES_UPDATE + map.toString());
 
                 return map;
@@ -137,7 +147,7 @@ public class InsertarClientes extends AppCompatActivity {
             @Override
             public Map < String, String > getHeaders() throws AuthFailureError {
                 HashMap < String, String > headers = new HashMap < String, String > ();
-                String encodedCredentials = Base64.encodeToString("admin@tiendita.com:root".getBytes(), Base64.NO_WRAP);
+                String encodedCredentials = Base64.encodeToString("pddm-1021720:1021720".getBytes(), Base64.NO_WRAP);
                 headers.put("Authorization", "Basic " + encodedCredentials);
                 return headers;
             }
@@ -182,6 +192,7 @@ public class InsertarClientes extends AppCompatActivity {
                 map.clear();
                 map.put("nombre",nombre.getText().toString());
                 map.put("apellido",apellido.getText().toString());
+                map.put("foto",foto.getText().toString());
 
                 return map;
             }

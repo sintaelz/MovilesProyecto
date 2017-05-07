@@ -32,10 +32,12 @@ import mx.itesm.csf.crud.Controladores.Controlador;
 import mx.itesm.csf.crud.Controladores.Servicios;
 import mx.itesm.csf.crud.Modelos.ModeloRopa;
 import mx.itesm.csf.crud.R;
+import mx.itesm.csf.crud.Ventas.BorrarVentas;
+import mx.itesm.csf.crud.Ventas.InsertarVentas;
 
-// importamos el modelo de datos
 
 public class Principal extends AppCompatActivity {
+
 
     RecyclerView miRecyclerview;
     RecyclerView.Adapter miAdaptador;
@@ -48,7 +50,7 @@ public class Principal extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_principal);
+        setContentView(R.layout.layout_principal_ventas);
 
         // Mapeamos los elementos de nuestra vista y la del CardView
         miRecyclerview = (RecyclerView) findViewById(R.id.reciclador);
@@ -79,7 +81,7 @@ public class Principal extends AppCompatActivity {
         botonInsertar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Principal.this,InsertarDatos.class);
+                Intent intent = new Intent(Principal.this,InsertarVentas.class);
                 startActivity(intent);
             }
         });
@@ -87,7 +89,7 @@ public class Principal extends AppCompatActivity {
         botonBorrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent hapus = new Intent(Principal.this,BorrarDatos.class);
+                Intent hapus = new Intent(Principal.this,BorrarVentas.class);
                 startActivity(hapus);
             }
         });
@@ -117,14 +119,11 @@ public class Principal extends AppCompatActivity {
 
                                 } else {
                                     JSONObject data = response.getJSONObject(i);
-                                    //DataModel datamodel = new DataModel();
                                     ModeloRopa ropa = new ModeloRopa();
                                     ropa.setP_id(data.getString("p_id"));
                                     ropa.setNombre(data.getString("nombre"));
                                     ropa.setImagen(data.getString("imagen"));
                                     ropa.setStock(data.getString("stock"));
-                                    ropa.setStock_T2(data.getString("stock_T2"));
-                                    ropa.setStock_T3(data.getString("stock_T3"));
                                     ropa.setPrecio(data.getString("precio"));
                                     misElementos.add(ropa);
                                 }
@@ -133,7 +132,6 @@ public class Principal extends AppCompatActivity {
                                 e.printStackTrace();
                             }
                         }
-                        miAdaptador.notifyDataSetChanged();
                     }
                 },
                 new Response.ErrorListener() {

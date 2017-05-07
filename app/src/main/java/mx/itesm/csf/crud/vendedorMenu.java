@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ImageButton;
 
 import mx.itesm.csf.crud.Clientes.PrincipalClientes;
+import mx.itesm.csf.crud.Ropa.Principal;
 import mx.itesm.csf.crud.Ventas.PrincipalVentas;
 
 public class vendedorMenu extends AppCompatActivity {
@@ -27,7 +28,7 @@ public class vendedorMenu extends AppCompatActivity {
         catalogo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(vendedorMenu.this,PrincipalVentas.class);
+                Intent intent = new Intent(vendedorMenu.this,Principal.class);
                 startActivity(intent);
             }
         });
@@ -43,8 +44,8 @@ public class vendedorMenu extends AppCompatActivity {
         pedidos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Intent intent = new Intent(vendedorMenu.this,PrincipalVentas.class);
-                //startActivity(intent);
+                Intent intent = new Intent(vendedorMenu.this,PrincipalVentas.class);
+                startActivity(intent);
             }
         });
 

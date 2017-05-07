@@ -1,14 +1,12 @@
 package mx.itesm.csf.crud.Clientes;
 
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Base64;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -51,8 +49,8 @@ public class PrincipalClientes extends AppCompatActivity {
 
         // Mapeamos los elementos de nuestra vista y la del CardView
         miRecyclerview = (RecyclerView) findViewById(R.id.reciclador);
-        botonInsertar = (Button) findViewById(R.id.botonInsertar);
-        botonBorrar = (Button) findViewById(R.id.botonBorrar);
+        //botonInsertar = (Button) findViewById(R.id.botonInsertar);
+        //botonBorrar = (Button) findViewById(R.id.botonBorrar);
         barra_de_progreso = new ProgressDialog(PrincipalClientes.this);
         misElementos = new ArrayList<>();
 
@@ -75,7 +73,7 @@ public class PrincipalClientes extends AppCompatActivity {
         miRecyclerview.setAdapter(miAdaptador);
 
         // definimos los listeners para cada boton de nuestra interfaz
-        botonInsertar.setOnClickListener(new View.OnClickListener() {
+        /*botonInsertar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(PrincipalClientes.this,InsertarClientes.class);
@@ -89,7 +87,7 @@ public class PrincipalClientes extends AppCompatActivity {
                 Intent hapus = new Intent(PrincipalClientes.this,BorrarClientes.class);
                 startActivity(hapus);
             }
-        });
+        });*/
     }
 
     // creamos nuestro método cargarJSON() con la librería Volley
@@ -121,6 +119,7 @@ public class PrincipalClientes extends AppCompatActivity {
                                     cliente.setC_id(data.getString("c_id"));
                                     cliente.setNombre(data.getString("nombre"));
                                     cliente.setApellido(data.getString("apellido"));
+                                    cliente.setFoto(data.getString("foto"));
                                     misElementos.add(cliente);
                                 }
 
