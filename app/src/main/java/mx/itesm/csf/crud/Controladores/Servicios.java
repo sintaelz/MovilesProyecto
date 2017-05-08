@@ -26,4 +26,10 @@ public class Servicios {
     public static final String VENTAS_CREATE = "http://ubiquitous.csf.itesm.mx/~pddm-1021720/content/proyectoFinalProtected/servicio.c.ventas.php";
     public static final String VENTAS_DELETE = "http://ubiquitous.csf.itesm.mx/~pddm-1021720/content/proyectoFinalProtected/servicio.d.ventas.php";
     public static final String VENTAS_UPDATE = "http://ubiquitous.csf.itesm.mx/~pddm-1021720/content/proyectoFinalProtected/servicio.u.ventas.php";
+
+    //Servicio de carrito
+    public static final String CARRITO_READ = "http://ubiquitous.csf.itesm.mx/~pddm-1021720/content/proyectoFinalProtected/servicio.r.carrito.php";
+    public static final String CARRITO_CREATE = "http://ubiquitous.csf.itesm.mx/~pddm-1021720/content/proyectoFinalProtected/servicio.c.carrito.php";
+    public static final String CARRITO_DELETE = "http://ubiquitous.csf.itesm.mx/~pddm-1021720/content/proyectoFinalProtected/servicio.d.carrito.php";
+    public static final String CARRITO_UPDATE = "http://ubiquitous.csf.itesm.mx/~pddm-1021720/content/proyectoFinalProtected/servicio.u.carrito.php";
 }

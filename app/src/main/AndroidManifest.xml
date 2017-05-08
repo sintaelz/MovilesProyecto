@@ -35,7 +35,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".vendedorMenu"></activity>
+        <activity android:name=".vendedorMenu" />
+        <activity android:name=".Adaptadores.AdaptadorCarrito" />
+        <activity android:name=".Modelos.ModeloCarrito" />
+        <activity android:name=".Carrito.InsertarCarrito" />
+        <activity android:name=".Carrito.PrincipalCarrito" />
+        <activity android:name=".Carrito.BorrarCarrito"></activity>
     </application>
 
 </manifest>

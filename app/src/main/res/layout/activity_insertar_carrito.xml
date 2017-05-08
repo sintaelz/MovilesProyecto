@@ -1,57 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:fresco="http://schemas.android.com/apk/res-auto"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="10dp"
-    tools:context="mx.itesm.csf.crud.Clientes.InsertarClientes">
+    tools:context="mx.itesm.csf.crud.Carrito.InsertarCarrito">
+
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/nombre">
+        android:id="@+id/clave_e">
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nombre"
-            android:id="@+id/nombre_cliente"/>
+            android:hint="Clave del empleado"
+            android:id="@+id/clave_empleado"/>
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/apellido">
+        android:id="@+id/clave_p">
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Apellido"
-            android:id="@+id/apellido_cliente"/>
+            android:hint="Clave del Producto"
+            android:id="@+id/clave_producto"/>
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/foto">
+        android:id="@+id/clave_c">
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Foto Cliente"
-            android:id="@+id/foto_cliente"/>
+            android:hint="Clave del Cliente"
+            android:id="@+id/clave_cliente"/>
     </android.support.design.widget.TextInputLayout>
 
-    <com.facebook.drawee.view.SimpleDraweeView
-        android:id="@+id/sdvImage"
-        android:layout_width="130dp"
-        android:layout_height="130dp"
-        fresco:placeholderImage="@drawable/loading"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/cantidad_text">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Cantidad"
+            android:id="@+id/cantidad"/>
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/fecha_text">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Fecha de Hoy (opcional)"
+            android:id="@+id/fecha"/>
+    </android.support.design.widget.TextInputLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -72,5 +88,7 @@
             android:text="Guardar"
             android:id="@+id/boton_guardar"/>
     </LinearLayout>
+
+
 
 </LinearLayout>
