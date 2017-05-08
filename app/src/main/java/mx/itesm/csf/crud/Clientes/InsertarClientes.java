@@ -47,14 +47,14 @@ public class InsertarClientes extends AppCompatActivity {
         /* obtenemos los datos del intento*/
         Intent datos = getIntent();
         final int update = datos.getIntExtra("update",0);
-        //String intent_clave = datos.getStringExtra("clave");
+        String intent_clave = datos.getStringExtra("clave");
         String intent_nombre = datos.getStringExtra("nombre");
         String intent_apellido = datos.getStringExtra("apellido");
         String intent_foto = datos.getStringExtra("foto");
 
 
         // hacemos referencia a nuestra interfaz gráfica XML
-        //clave = (EditText) findViewById(R.id.clave_cliente);
+        clave = (EditText) findViewById(R.id.clave_cliente);
         nombre = (EditText) findViewById(R.id.nombre_cliente);
         apellido = (EditText) findViewById(R.id.apellido_cliente);
         foto = (EditText) findViewById(R.id.foto_cliente);
@@ -70,8 +70,8 @@ public class InsertarClientes extends AppCompatActivity {
         if(update == 1)
         {
             boton_guardar.setText("Actualizar datos");
-            //clave.setText(intent_clave);
-            //clave.setVisibility(View.GONE);
+            clave.setText(intent_clave);
+            clave.setVisibility(View.GONE);
             nombre.setText(intent_nombre);
             apellido.setText(intent_apellido);
             foto.setText(intent_foto);
@@ -136,7 +136,7 @@ public class InsertarClientes extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 map.clear();
-                //map.put("c_id",clave.getText().toString());
+                map.put("c_id",clave.getText().toString());
                 map.put("nombre",nombre.getText().toString());
                 map.put("apellido",apellido.getText().toString());
                 map.put("foto",foto.getText().toString());
