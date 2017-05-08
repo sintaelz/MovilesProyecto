@@ -11,7 +11,6 @@ import android.widget.TextView;
 import java.util.List;
 
 import mx.itesm.csf.crud.Clientes.InsertarClientes;
-import mx.itesm.csf.crud.Ropa.InsertarDatos;
 import mx.itesm.csf.crud.Modelos.ModeloClientes;
 import mx.itesm.csf.crud.R;
 
@@ -90,6 +89,7 @@ public class AdaptadorClientes extends RecyclerView.Adapter<AdaptadorClientes.Co
                     update.putExtra("clave",datamodel.getC_id());
                     update.putExtra("nombre",datamodel.getNombre());
                     update.putExtra("apellido",datamodel.getApellido());
+                    update.putExtra("foto",datamodel.getFoto());
                     context.startActivity(update);
                 }
             });

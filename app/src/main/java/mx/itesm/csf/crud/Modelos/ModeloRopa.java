@@ -54,19 +54,19 @@ public class ModeloRopa {
     }
 
     public String getStock_T2() {
-        return stock;
+        return stock_T2;
     }
 
     public void setStock_T2(String stock_T2) {
-        this.stock = stock_T2;
+        this.stock_T2 = stock_T2;
     }
 
     public String getStock_T3() {
-        return stock;
+        return stock_T3;
     }
 
     public void setStock_T3(String stock_T3) {
-        this.stock = stock_T3;
+        this.stock_T3 = stock_T3;
     }
 
     public String getPrecio() {

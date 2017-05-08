@@ -45,7 +45,7 @@ public class InsertarVentas extends AppCompatActivity {
         /* obtenemos los datos del intento*/
         Intent datos = getIntent();
         final int update = datos.getIntExtra("update",0);
-        //String intent_clave_venta = datos.getStringExtra("clave_venta");
+        String intent_clave_venta = datos.getStringExtra("clave_venta");
         String intent_clave_empleado = datos.getStringExtra(("clave_empleado"));
         String intent_clave_producto = datos.getStringExtra("clave_producto");
         String intent_clave_cliente = datos.getStringExtra("clave_cliente");
@@ -54,7 +54,7 @@ public class InsertarVentas extends AppCompatActivity {
 
 
         // hacemos referencia a nuestra interfaz gráfica XML
-        //clave_venta = (EditText) findViewById(R.id.clave_venta);
+        clave_venta = (EditText) findViewById(R.id.clave_venta);
         clave_empleado = (EditText) findViewById(R.id.clave_empleado);
         clave_producto = (EditText) findViewById(R.id.clave_producto);
         clave_cliente = (EditText) findViewById(R.id.clave_cliente);
@@ -70,11 +70,11 @@ public class InsertarVentas extends AppCompatActivity {
         if(update == 1)
         {
             boton_guardar.setText("Actualizar datos");
-            //clave_venta.setText(intent_clave_venta);
+            clave_venta.setText(intent_clave_venta);
             clave_empleado.setText(intent_clave_empleado);
             clave_producto.setText(intent_clave_producto);
             clave_cliente.setText(intent_clave_cliente);
-            //clave_venta.setVisibility(View.GONE);
+            clave_venta.setVisibility(View.GONE);
             cantidad.setText(intent_cantidad);
             fecha.setText(intent_fecha);
         }
@@ -135,7 +135,7 @@ public class InsertarVentas extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 map.clear();
-                //map.put("v_id",clave_venta.getText().toString());
+                map.put("v_id",clave_venta.getText().toString());
                 map.put("e_id",clave_empleado.getText().toString());
                 map.put("p_id",clave_producto.getText().toString());
                 map.put("c_id",clave_cliente.getText().toString());
