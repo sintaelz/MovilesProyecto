@@ -40,7 +40,10 @@
         <activity android:name=".Modelos.ModeloCarrito" />
         <activity android:name=".Carrito.InsertarCarrito" />
         <activity android:name=".Carrito.PrincipalCarrito" />
-        <activity android:name=".Carrito.BorrarCarrito"></activity>
+        <activity android:name=".Carrito.BorrarCarrito" />
+        <activity android:name=".Clientes.HistorialClientes" />
+        <activity android:name=".Empleados.ComisionEmpleado" />
+        <activity android:name=".Ventas.HistorialVentas"></activity>
     </application>
 
 </manifest>

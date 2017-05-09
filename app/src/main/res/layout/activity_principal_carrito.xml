@@ -8,9 +8,8 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/reciclador"
         android:layout_width="match_parent"
-        android:layout_height="412dp"
-        android:layout_margin="5dp"
-        android:layout_weight="0.95" />
+        android:layout_height="399dp"
+        android:layout_margin="5dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -31,6 +30,12 @@
             android:layout_weight="1"
             android:text="Borrar" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/botonCheckout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Checkout" />
 
 
 </LinearLayout>

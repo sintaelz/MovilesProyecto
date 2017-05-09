@@ -3,6 +3,7 @@ package mx.itesm.csf.crud.Controladores;
 // definición de los microservicios php en ubiquitous
 
 public class Servicios {
+
     //SERVICIOS DE ROPA
     public static final String ROPA_READ = "http://ubiquitous.csf.itesm.mx/~pddm-1021720/content/proyectoFinalProtected/servicio.r.ropa.php";
     public static final String ROPA_CREATE = "http://ubiquitous.csf.itesm.mx/~pddm-1021720/content/proyectoFinalProtected/servicio.c.ropa.php";
@@ -29,7 +30,12 @@ public class Servicios {
 
     //Servicio de carrito
     public static final String CARRITO_READ = "http://ubiquitous.csf.itesm.mx/~pddm-1021720/content/proyectoFinalProtected/servicio.r.carrito.php";
-    public static final String CARRITO_CREATE = "http://ubiquitous.csf.itesm.mx/~pddm-1021720/content/proyectoFinalProtected/servicio.c.carrito.php";
+    //public static final String CARRITO_CREATE = "http://ubiquitous.csf.itesm.mx/~pddm-1021720/content/proyectoFinalProtected/servicio.c.carrito.php";
+    public static final String CARRITO_CREATE = "http://ubiquitous.csf.itesm.mx/~pddm-1020365/ParcialFinal/PHPs/servicio.e.agregarCarrito.php";
     public static final String CARRITO_DELETE = "http://ubiquitous.csf.itesm.mx/~pddm-1021720/content/proyectoFinalProtected/servicio.d.carrito.php";
     public static final String CARRITO_UPDATE = "http://ubiquitous.csf.itesm.mx/~pddm-1021720/content/proyectoFinalProtected/servicio.u.carrito.php";
+    public static final String CARRITO_CHECKOUT = "http://ubiquitous.csf.itesm.mx/~pddm-1020365/ParcialFinal/PHPs/checkoutCart.php";
+    public static final String HISTORIAL_READ = "http://ubiquitous.csf.itesm.mx/~pddm-1020365/ParcialFinal/PHPs/servicio.r.ventasID.php";
+    public static final String COMISION_READ = "http://ubiquitous.csf.itesm.mx/~pddm-1020365/ParcialFinal/PHPs/servicio.e.comisiones.php";
+    public static final String HISTVENTAS_READ = "http://ubiquitous.csf.itesm.mx/~pddm-1020365/ParcialFinal/PHPs/servicio.e.historial.php";
 }

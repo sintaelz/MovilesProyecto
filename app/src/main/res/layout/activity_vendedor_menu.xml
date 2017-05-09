@@ -12,6 +12,30 @@
         tools:layout_editor_absoluteY="8dp"
         tools:layout_editor_absoluteX="8dp">
 
+        <Button
+            android:id="@+id/comision"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Comision"
+            android:textSize="26sp"
+            android:fontFamily="sans-serif"
+            android:layout_marginTop="12dp"
+            android:layout_below="@+id/textView"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="14dp" />
+
+        <Button
+            android:id="@+id/historial"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Historial"
+            android:textSize="26sp"
+            android:fontFamily="sans-serif"
+            android:layout_alignBaseline="@+id/comision"
+            android:layout_alignBottom="@+id/comision"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="12dp" />
+
         <ImageButton
             android:id="@+id/carrito"
             android:layout_width="107dp"
@@ -75,9 +99,19 @@
             android:text="VENDEDOR"
             android:textSize="32sp"
             android:fontFamily="sans-serif"
+            android:layout_marginTop="21dp"
             android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="40dp" />
+            android:layout_centerHorizontal="true" />
+
+        <Button
+            android:id="@+id/logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Logout"
+            android:textSize="26sp"
+            android:fontFamily="sans-serif"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true" />
 
     </RelativeLayout>
 

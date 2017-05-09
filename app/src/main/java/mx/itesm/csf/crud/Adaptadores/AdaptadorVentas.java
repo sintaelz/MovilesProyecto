@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import mx.itesm.csf.crud.Ropa.InsertarDatos;
 import mx.itesm.csf.crud.Modelos.ModeloVentas;
 import mx.itesm.csf.crud.R;
 import mx.itesm.csf.crud.Ventas.InsertarVentas;
@@ -48,7 +47,7 @@ public class AdaptadorVentas extends RecyclerView.Adapter<AdaptadorVentas.Conten
     @Override
     public void onBindViewHolder(AdaptadorVentas.ContenedorDeDatos titulo, int position) {
         ModeloVentas datamodel  = misElementos.get(position);
-        titulo.Cantidad.setText("Cliente # " + datamodel.getC_id() + " | Producto # " + datamodel.getP_id() + " | Cantidad: " + datamodel.getCantidad());
+        titulo.Cantidad.setText("E# " + datamodel.getE_id() + " | Cliente # " + datamodel.getC_id() + " | Producto # " + datamodel.getP_id() + " | Cantidad: " + datamodel.getCantidad());
         titulo.Clave_v.setText("# " + datamodel.getV_id() + ": ");
 
         titulo.datamodel = datamodel;
@@ -86,6 +85,7 @@ public class AdaptadorVentas extends RecyclerView.Adapter<AdaptadorVentas.Conten
                     Intent update = new Intent(context, InsertarVentas.class);
                     update.putExtra("update",1);
                     update.putExtra("clave_venta",datamodel.getV_id());
+                    update.putExtra("clave_empleado", datamodel.getE_id());
                     update.putExtra("cantidad",datamodel.getCantidad());
                     update.putExtra("clave_cliente",datamodel.getC_id());
                     update.putExtra("clave_producto",datamodel.getP_id());

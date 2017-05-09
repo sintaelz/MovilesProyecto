@@ -85,4 +85,15 @@
             android:id="@+id/boton_guardar"/>
     </LinearLayout>
 
+    <Button
+        android:id="@+id/historial"
+        android:layout_width="393dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="sans-serif"
+        android:text="Historial Cliente"
+        android:gravity="center|center_vertical"
+        android:textSize="26sp" />
+
 </LinearLayout>

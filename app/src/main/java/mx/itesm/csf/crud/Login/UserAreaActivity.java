@@ -28,7 +28,7 @@ public class UserAreaActivity extends AppCompatActivity {
         Intent intent = getIntent();
         //String usuario = intent.getStringExtra("usuario");
         //String email = intent.getStringExtra("email");
-        int e_id = intent.getIntExtra("e_id", -1);
+        final int e_id = intent.getIntExtra("e_id", -1);
         String nombre = intent.getStringExtra("nombre");
         String apellido = intent.getStringExtra("apellido");
         final int admin = intent.getIntExtra("admin", -1);
@@ -46,8 +46,10 @@ public class UserAreaActivity extends AppCompatActivity {
                 Intent mainIntent;
                 if(admin == 1) {
                     mainIntent = new Intent().setClass(UserAreaActivity.this, CRUDmenu.class);
+                    mainIntent.putExtra("e_id",e_id);
                 } else {
                     mainIntent = new Intent().setClass(UserAreaActivity.this, vendedorMenu.class);
+                    mainIntent.putExtra("e_id",e_id);
                 }
                 startActivity(mainIntent);
             }

@@ -36,7 +36,7 @@ public class InsertarClientes extends AppCompatActivity {
 
     // definimos los componentes de nuestra interfaz
     EditText clave,nombre,apellido, foto;
-    Button boton_cancelar,boton_guardar;
+    Button boton_cancelar,boton_guardar, historial;
     ProgressDialog barra_de_progreso;
     Map<String, String> map = new HashMap<>();
 
@@ -49,7 +49,7 @@ public class InsertarClientes extends AppCompatActivity {
         /* obtenemos los datos del intento*/
         Intent datos = getIntent();
         final int update = datos.getIntExtra("update",0);
-        String intent_clave = datos.getStringExtra("clave");
+        final String intent_clave = datos.getStringExtra("clave");
         String intent_nombre = datos.getStringExtra("nombre");
         String intent_apellido = datos.getStringExtra("apellido");
         String intent_foto = datos.getStringExtra("foto");
@@ -63,6 +63,7 @@ public class InsertarClientes extends AppCompatActivity {
 
         boton_cancelar = (Button) findViewById(R.id.boton_cancelar);
         boton_guardar = (Button) findViewById(R.id.boton_guardar);
+        historial = (Button) findViewById(R.id.historial);
         barra_de_progreso = new ProgressDialog(InsertarClientes.this);
 
         SimpleDraweeView draweeView = (SimpleDraweeView) findViewById(R.id.sdvImage);
@@ -100,6 +101,15 @@ public class InsertarClientes extends AppCompatActivity {
             public void onClick(View view) {
                 Intent principal = new Intent(InsertarClientes.this,PrincipalClientes.class);
                 startActivity(principal);
+            }
+        });
+
+        historial.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                    Intent intent = new Intent(InsertarClientes.this, HistorialClientes.class);
+                    intent.putExtra("c_id",clave.getText().toString());
+                    startActivity(intent);
             }
         });
     }

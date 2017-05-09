@@ -17,6 +17,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.StringRequest;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -33,6 +34,8 @@ import mx.itesm.csf.crud.Controladores.Servicios;
 import mx.itesm.csf.crud.Modelos.ModeloCarrito;
 import mx.itesm.csf.crud.R;
 
+import static mx.itesm.csf.crud.Controladores.Servicios.CARRITO_CHECKOUT;
+
 public class PrincipalCarrito extends AppCompatActivity {
 
     RecyclerView miRecyclerview;
@@ -40,7 +43,7 @@ public class PrincipalCarrito extends AppCompatActivity {
     RecyclerView.LayoutManager miAdministrador;
     //List<DataModel> misElementos;
     List<ModeloCarrito> misElementos;
-    Button botonInsertar, botonBorrar;
+    Button botonInsertar, botonBorrar, botonCheckout;
     ProgressDialog barra_de_progreso;
 
     @Override
@@ -50,6 +53,7 @@ public class PrincipalCarrito extends AppCompatActivity {
 
         // Mapeamos los elementos de nuestra vista y la del CardView
         miRecyclerview = (RecyclerView) findViewById(R.id.reciclador);
+        botonCheckout = (Button) findViewById(R.id.botonCheckout);
         botonInsertar = (Button) findViewById(R.id.botonInsertar);
         botonBorrar = (Button) findViewById(R.id.botonBorrar);
         barra_de_progreso = new ProgressDialog(PrincipalCarrito.this);
@@ -89,11 +93,22 @@ public class PrincipalCarrito extends AppCompatActivity {
                 startActivity(hapus);
             }
         });
+
+
+        botonCheckout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                pasarDatos();
+            }
+        });
+
+
     }
 
     // creamos nuestro método cargarJSON() con la librería Volley
     private void cargarJSON()
     {
+        barra_de_progreso.setMessage("Cargando datos...");
         barra_de_progreso.setMessage("Cargando datos...");
         barra_de_progreso.setCancelable(false);
         barra_de_progreso.show();
@@ -116,7 +131,7 @@ public class PrincipalCarrito extends AppCompatActivity {
                                 } else {
                                     JSONObject data = response.getJSONObject(i);
                                     ModeloCarrito carrito = new ModeloCarrito();
-                                    carrito.setCarrito_id(data.getString("v_id"));
+                                    carrito.setCarrito_id(data.getString("carrito_id"));
                                     carrito.setE_id(data.getString("e_id"));
                                     carrito.setP_id(data.getString("p_id"));
                                     carrito.setC_id(data.getString("c_id"));
@@ -150,5 +165,52 @@ public class PrincipalCarrito extends AppCompatActivity {
 
         Controlador.getInstance().agregaAlRequestQueue(reqData);
     }
+
+
+
+
+
+
+
+
+
+    private void pasarDatos()
+    {
+        barra_de_progreso.setMessage("Actualizar datos");
+        barra_de_progreso.setCancelable(false);
+        barra_de_progreso.show();
+
+        StringRequest updateReq = new StringRequest(Request.Method.GET, CARRITO_CHECKOUT,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        barra_de_progreso.cancel();
+                        try {
+                            JSONObject res = new JSONObject(response);
+                            Toast.makeText(PrincipalCarrito.this, "Respuesta: "+   res.getString("Mensaje") , Toast.LENGTH_SHORT).show();
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        // comentado para que se quede en esta sección de mi app y ver los errores en caso de fallo al insertar
+                        startActivity( new Intent(PrincipalCarrito.this,PrincipalCarrito.class));
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        barra_de_progreso.cancel();
+                        Toast.makeText(PrincipalCarrito.this, "Respuesta: Error al insertar datos", Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+
+        Controlador.getInstance().agregaAlRequestQueue(updateReq);
+    }
+
+
+
+
+
 
 }
