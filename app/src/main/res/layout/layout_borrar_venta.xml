@@ -19,7 +19,7 @@
         />
 
     <Button
-        android:text="Borrar registro"
+        android:text="@string/BorrarRegistro"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/boton_borrar"

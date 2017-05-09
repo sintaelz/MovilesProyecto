@@ -74,14 +74,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Cancelar"
+            android:text="@string/Cancelar"
             android:id="@+id/boton_cancelar"/>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Guardar"
+            android:text="@string/Guardar"
             android:id="@+id/boton_guardar"/>
     </LinearLayout>
 
@@ -92,7 +92,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:fontFamily="sans-serif"
-        android:text="Historial Cliente"
+        android:text="@string/Historial"
         android:gravity="center|center_vertical"
         android:textSize="26sp" />
 

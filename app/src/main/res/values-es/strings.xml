@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Proyecto Tienda Ropa</string>
+    <string name="title_activity_ropa_grafica">RopaGrafica</string>
+    <string name="Register">Registrarte</string>
+    <string name="Insertar">Insertar</string>
+    <string name="Borrar">Borrar</string>
+    <string name="Comision">Comision</string>
+    <string name="VENDEDOR">VENDEDOR</string>
+    <string name="Historial">Historial</string>
+    <string name="BorrarRegistro">Borrar Registro</string>
+    <string name="Nombre">Nombre</string>
+    <string name="Cancelar">Cancelar</string>
+    <string name="Guardar">Guardar</string>
+</resources>

@@ -110,14 +110,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Cancelar"
+            android:text="@string/Cancelar"
             android:id="@+id/boton_cancelar"/>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Guardar"
+            android:text="@string/Guardar"
             android:id="@+id/boton_guardar"/>
     </LinearLayout>
 

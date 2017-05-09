@@ -1,4 +1,17 @@
 <resources>
     <string name="app_name">Proyecto Tienda Ropa</string>
     <string name="title_activity_ropa_grafica">RopaGrafica</string>
+    <string name="Register">Register</string>
+    <string name="Insertar">Insert</string>
+    <string name="Borrar">Delete</string>
+    <string name="Comision">Comission</string>
+    <string name="VENDEDOR">SELLER</string>
+    <string name="Historial">History</string>
+    <string name="BorrarRegistro">Erase Register</string>
+    <string name="Nombre">Name</string>
+    <string name="Cancelar">Cancel</string>
+    <string name="Guardar">Save</string>
+
+
+
 </resources>
