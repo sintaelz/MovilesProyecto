@@ -43,7 +43,8 @@
         <activity android:name=".Carrito.BorrarCarrito" />
         <activity android:name=".Clientes.HistorialClientes" />
         <activity android:name=".Empleados.ComisionEmpleado" />
-        <activity android:name=".Ventas.HistorialVentas"></activity>
+        <activity android:name=".Ventas.HistorialVentas" />
+        <activity android:name=".Controladores.Grafica"></activity>
     </application>
 
 </manifest>

@@ -33,6 +33,7 @@ import mx.itesm.csf.crud.R;
 
 public class ComisionEmpleado extends AppCompatActivity {
 
+    private int e_id;
 
     RecyclerView miRecyclerview;
     AdaptadorComision miAdaptador;
@@ -46,6 +47,11 @@ public class ComisionEmpleado extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_comision_empleado);
+        Bundle b = getIntent().getExtras();
+        if(b != null){
+            e_id = (Integer) b.get("e_id");
+        }
+        setContentView(R.layout.activity_historial_ventas);
 
         // Mapeamos los elementos de nuestra vista y la del CardView
         miRecyclerview = (RecyclerView) findViewById(R.id.reciclador);
@@ -78,7 +84,7 @@ public class ComisionEmpleado extends AppCompatActivity {
         barra_de_progreso.setCancelable(false);
         barra_de_progreso.show();
 
-        JsonArrayRequest reqData = new JsonArrayRequest(Request.Method.GET, Servicios.COMISION_READ,null,
+        JsonArrayRequest reqData = new JsonArrayRequest(Request.Method.GET, Servicios.COMISION_READ+"?e_id=" + e_id,null,
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {

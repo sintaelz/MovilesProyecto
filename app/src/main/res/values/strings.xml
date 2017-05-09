@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Proyecto Tienda Ropa</string>
+    <string name="title_activity_ropa_grafica">RopaGrafica</string>
 </resources>

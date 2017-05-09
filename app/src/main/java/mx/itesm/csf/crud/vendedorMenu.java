@@ -39,6 +39,7 @@ public class vendedorMenu extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(vendedorMenu.this, ComisionEmpleado.class);
+                intent.putExtra("e_id", e_id);
                 startActivity(intent);
             }
         });
